@@ -9,6 +9,8 @@ public class Crayon {
 
   public Crayon(String color) {
       this.color = color;
+              System.out.println(color + " Crayon Object Created!");
+
   }
 
   public String getColor() {
