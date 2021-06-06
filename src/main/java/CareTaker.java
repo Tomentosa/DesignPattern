@@ -8,24 +8,27 @@ import java.util.ArrayList;
 public class CareTaker {
 
     private CrayonBox crayonBox;
-    private ArrayList<Memento> previousStates;
+    private ArrayList<Memento> previousStates = new ArrayList<>(); //initializing the new array list of crayons;
 
-    public CareTaker() {
-        this.previousStates = new ArrayList<Memento>(); //initializing the new array list of crayons
-
+    public CareTaker(CrayonBox crayola) {
+        this.crayonBox = crayola;
         System.out.println("CareTaker Object Created!");
     }
 
     public void addCrayon(Crayon crayonToAdd) {
+        Memento additionEvent = crayonBox.createMemento(); //Saves a memento before the action
+        addMemento(additionEvent);
         crayonBox.addCrayon(crayonToAdd);
     }
 
     public void removeCrayon(int crayonToRemove) {
+        Memento removalEvent = crayonBox.createMemento(); //Saves a memento before the action
+        addMemento(removalEvent);
         crayonBox.removeCrayon(crayonToRemove);
     }
 
-    public void undoAction(CrayonBox CrayonBoxToUndo) {
-        Memento undo = previousStates.get(previousStates.size());
+    public void undoAction(CrayonBox CrayonBoxToUndo, int i) {
+        Memento undo = previousStates.get(previousStates.size() - i - 1);
         CrayonBoxToUndo.restoreFromMemento(undo);
     }
 

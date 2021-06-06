@@ -23,6 +23,7 @@ public class CrayonBox {
     public Memento createMemento() {                                //Originator has a method to create memento
         ArrayList<Crayon> mementoList = new ArrayList<Crayon>();
 
+        //This loop reads through 
         for (int i = 0; i < crayons.size(); i++) {
             mementoList.add(crayons.get(i));
         }

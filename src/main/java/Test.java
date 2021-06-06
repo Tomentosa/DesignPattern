@@ -6,27 +6,31 @@
 public class Test {
 
     public static void main(String[] args) {
-        CareTaker toddler = new CareTaker();
-
         CrayonBox crayola = new CrayonBox();
+        CareTaker toddler = new CareTaker(crayola);
 
         //Lets add some crayons to the box
-        crayola.addCrayon(new Crayon("Red"));
-        crayola.addCrayon(new Crayon("Blue"));
-        crayola.addCrayon(new Crayon("Green"));
-        crayola.addCrayon(new Crayon("Yellow"));
-        crayola.addCrayon(new Crayon("Magenta"));
+        toddler.addCrayon(new Crayon("Red"));
+        toddler.addCrayon(new Crayon("Blue"));
+        toddler.addCrayon(new Crayon("Green"));
+        toddler.addCrayon(new Crayon("Yellow"));
+        toddler.addCrayon(new Crayon("Magenta"));
 
         System.out.println(crayola.toString());
-        Memento eventMemento = crayola.createMemento();
 
-        crayola.removeCrayon(4);
-        crayola.removeCrayon(3);
-        crayola.removeCrayon(2);
+        toddler.removeCrayon(4);
+        toddler.removeCrayon(3);
+        toddler.removeCrayon(2);
+
         System.out.println(crayola.toString());
 
-        crayola.restoreFromMemento(eventMemento);
+        toddler.undoAction(crayola, 0);
+        System.out.println(crayola.toString());
 
+        toddler.undoAction(crayola, 1);
+        System.out.println(crayola.toString());
+
+        toddler.undoAction(crayola, 2);
         System.out.println(crayola.toString());
 
     }
