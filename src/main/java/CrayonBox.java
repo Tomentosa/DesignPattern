@@ -21,8 +21,9 @@ public class CrayonBox {
     }
 
     public void restoreFromMemento(Memento memento) {
-        System.out.println("Restoring from memento!");
-        this.crayons = (ArrayList<Crayon>) memento.getState();
+        System.out.println("Restoring from memento!"+memento.getClass());
+       // CrayonBox restored = (CrayonBox) memento.getClass();
+       // this.crayons = restored.getCrayons();
     }
 
     public void addCrayon(Crayon crayonToAdd) {
@@ -46,8 +47,9 @@ public class CrayonBox {
         }
         return crayonList;
     }
-    public ArrayList<Crayon> getCrayons(){
-    return this.crayons;
+
+    public ArrayList<Crayon> getCrayons() {
+        return this.crayons;
     }
 
     public CrayonBox() {

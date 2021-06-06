@@ -8,7 +8,7 @@ public class Memento {
     private Object state;
 
     public Memento(Object state) {
-        System.out.println("Memento Created");
+        System.out.println("Memento Created" + state.getClass());
     }
 
     public Object getState() {

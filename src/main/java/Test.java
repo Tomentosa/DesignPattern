@@ -19,7 +19,7 @@ public class Test {
 
         System.out.println(crayola.toString());
         Memento eventMemento = new Memento(crayola);
-        toddler.addMemento(eventMemento);
+        //toddler.addMemento(eventMemento);
 
         crayola.removeCrayon(4);
         crayola.removeCrayon(3);
