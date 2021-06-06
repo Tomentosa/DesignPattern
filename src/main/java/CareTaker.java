@@ -2,13 +2,16 @@
 /**
  *
  * @author Brian Avadikian
+ * This is the caretaker class which calls on the originator to complete its
+ * encapsulated actions, and calls for mementos to be created which it stores in
+ * an array of history
  */
 import java.util.ArrayList;
 
 public class CareTaker {
 
     private CrayonBox crayonBox;
-    private ArrayList<Memento> previousStates = new ArrayList<>(); //initializing the new array list of crayons;
+    private ArrayList<Memento> history = new ArrayList<>(); //initializing the new array list of crayons;
 
     public CareTaker(CrayonBox crayola) {
         this.crayonBox = crayola;
@@ -28,11 +31,11 @@ public class CareTaker {
     }
 
     public void undoAction(CrayonBox CrayonBoxToUndo, int i) {
-        Memento undo = previousStates.get(previousStates.size() - i - 1);
+        Memento undo = history.get(history.size() - i - 1);
         CrayonBoxToUndo.restoreFromMemento(undo);
     }
 
     public void addMemento(Memento mementoToAdd) {
-        previousStates.add(mementoToAdd);
+        history.add(mementoToAdd);
     }
 }

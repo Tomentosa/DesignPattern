@@ -2,24 +2,20 @@
 /**
  *
  * @author Brian Avadikian
+ * This is a simple class to create a Crayon Object with an associated color.]
+ *
+ * NOTE: The Crayon object is NOT have an associated role is the memento design
+ * pattern.
  */
-
 public class Crayon {
 
     private String color;
 
     public Crayon(String color) {
         this.color = color;
-        System.out.println(color + " Crayon Object Created!");
-
     }
 
     public String getColor() {
         return this.color;
     }
-
-    public void setColor(String newColor) {
-        this.color = newColor;
-    }
-
 }

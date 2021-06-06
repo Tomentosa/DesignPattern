@@ -3,7 +3,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Brian Avadikian
+ * @author Brian Avadikian This is the memento class which accepts a state from
+ * the originator
  */
 public class Memento {
 
