@@ -1,18 +1,22 @@
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Brian Avadikian
  */
 public class Memento {
 
-    private Object state;
+    private ArrayList<Crayon> state;
 
-    public Memento(Object state) {
-        System.out.println("Memento Created" + state.getClass());
+    public Memento(ArrayList state) {
+        this.state = state;
+        System.out.println("Memento Created");
     }
 
-    public Object getState() {
+    public ArrayList<Crayon> getState() {
         return state;
+
     }
 
 }

@@ -18,8 +18,7 @@ public class Test {
         crayola.addCrayon(new Crayon("Magenta"));
 
         System.out.println(crayola.toString());
-        Memento eventMemento = new Memento(crayola);
-        //toddler.addMemento(eventMemento);
+        Memento eventMemento = crayola.createMemento();
 
         crayola.removeCrayon(4);
         crayola.removeCrayon(3);
@@ -27,6 +26,7 @@ public class Test {
         System.out.println(crayola.toString());
 
         crayola.restoreFromMemento(eventMemento);
+
         System.out.println(crayola.toString());
 
     }

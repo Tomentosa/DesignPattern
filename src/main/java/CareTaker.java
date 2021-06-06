@@ -25,7 +25,7 @@ public class CareTaker {
     }
 
     public void undoAction(CrayonBox CrayonBoxToUndo) {
-        Memento undo = previousStates.get(previousStates.size() - 1);
+        Memento undo = previousStates.get(previousStates.size());
         CrayonBoxToUndo.restoreFromMemento(undo);
     }
 

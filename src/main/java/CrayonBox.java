@@ -15,15 +15,25 @@ public class CrayonBox {
     private Crayon crayon;
     private ArrayList<Crayon> crayons;
 
-    public Memento createMemento() {
-        Memento eventMemento = new Memento(crayons);
-        return eventMemento;
+    public CrayonBox() {
+        this.crayons = new ArrayList<Crayon>();             //initializing the new array list of crayons
+        System.out.println("CrayonBox Object Created!");    //Providing a status update to terminal
+    }
+
+    public Memento createMemento() {                                //Originator has a method to create memento
+        ArrayList<Crayon> mementoList = new ArrayList<Crayon>();
+
+        for (int i = 0; i < crayons.size(); i++) {
+            mementoList.add(crayons.get(i));
+        }
+        return new Memento(mementoList);
     }
 
     public void restoreFromMemento(Memento memento) {
-        System.out.println("Restoring from memento!"+memento.getClass());
-       // CrayonBox restored = (CrayonBox) memento.getClass();
-       // this.crayons = restored.getCrayons();
+        System.out.println("Restoring from memento! ");
+        ArrayList<Crayon> restored = memento.getState();
+        this.crayons = restored;
+
     }
 
     public void addCrayon(Crayon crayonToAdd) {
@@ -51,10 +61,4 @@ public class CrayonBox {
     public ArrayList<Crayon> getCrayons() {
         return this.crayons;
     }
-
-    public CrayonBox() {
-        this.crayons = new ArrayList<Crayon>(); //initializing the new array list of crayons
-        System.out.println("CrayonBox Object Created!");
-    }
-
 }
